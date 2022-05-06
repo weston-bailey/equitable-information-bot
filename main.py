@@ -1,16 +1,10 @@
 import praw
-from requests import Session
-from urllib.parse import quote_plus
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
 print(os.environ)
-
-QUESTIONS = ["what is", "who is", "what are"]
-REPLY_TEMPLATE = "[Let me google that for you](https://lmgtfy.com/?q={})"
-
 
 def main():
     reddit = praw.Reddit(
