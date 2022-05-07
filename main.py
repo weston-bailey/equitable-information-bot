@@ -4,7 +4,7 @@ import os
 
 load_dotenv()
 
-print(os.environ)
+# print(os.environ)
 
 def main():
     reddit = praw.Reddit(
@@ -23,7 +23,11 @@ def main():
             print('found post with keyword in title')
             print(submission.title)
             print(submission.selftext)
-            submission.reply("hello I am robo")
+            print(submission.url)
+            for comment in submission.comments:
+                print([prop for prop in dir(comment) if prop[0] != '_'])
+                print(comment.author.name)
+            # submission.reply("hello I am robo")
 
 if __name__ == "__main__":
     main()
